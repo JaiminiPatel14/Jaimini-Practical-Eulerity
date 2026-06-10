@@ -25,14 +25,6 @@ FormView + Components        — renders each field type with shared FormTheme
 | **Views** | `FormView` orchestrates fields; each type has its own component (`TextFieldComponent`, `DropdownComponent`, `ToggleComponent`, `CheckboxComponent`) |
 | **Utility** | `Color+Extension` for hex string → SwiftUI `Color` conversion |
 
-### Key design choices
-
-- **Polymorphic decoding** — the `fields` array is decoded into a `FormField` enum that dispatches on the `type` key. Unknown types (e.g. `COLOR_PICKER`) are skipped via lossy array decoding so the app never crashes on unsupported fields.
-- **Theme-driven UI** — all components accept a `FormTheme` and apply colors from JSON (`background_color`, `text_color`, `border_color`, `error_color`).
-- **State by field id** — the ViewModel stores values in dictionaries keyed by field id (`textValues`, `dropdownSelections`, `toggleValues`, `checkboxValues`), with bindings exposed to each component.
-- **Dropdown picker** — custom sheet (300pt) with a scrollable checkbox list and Done/Cancel, instead of the system `Menu`.
-- **Load error handling** — if `form.json` is missing, unreadable, or fails to decode, a full-screen error view is shown instead of an empty form.
-
 ## Product Decisions
 
 ### Empty options dropdown
