@@ -38,10 +38,10 @@
       "id": "campaign_name",
       "order": 1,
       "type": "TEXT",
-      "subtype": "MULTILINE",
+      "subtype": "PLAIN",
       "label": "Campaign Name",
       "default_value": "Summer Sale 2026 - Extended Promotional Edition",
-      "max_length": null,
+      "max_length": 20,
       "error_message": "Name is required and cannot exceed 20 characters.",
       "required": true
     },
